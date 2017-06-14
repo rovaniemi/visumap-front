@@ -3,6 +3,8 @@
 
 Front-end for [visumap](https://github.com/rovaniemi/visumap).
 
+![visumap](http://i.imgur.com/m5bQZ3V.png)
+
 ## Prerequisites
 
 This project supports a superset of the latest JavaScript standard.
