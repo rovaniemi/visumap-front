@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Col } from 'reactstrap';
-import styles from './Menu.css'
+import styles from './Map.css'
 
-class Menu extends Component {
+class Map extends Component {
 
     constructor(){
         super();
@@ -16,4 +16,4 @@ class Menu extends Component {
     }
 }
 
-export default Menu;
+export default Map;

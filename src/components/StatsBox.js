@@ -10,10 +10,13 @@ class StatsBox extends Component {
 
     render() {
         return (
-            <Col md="4">
-                <div className="statsBox" id="stepOne">
+            <Col md="auto">
+                <div className="statsBox">
                     <p className="statsBoxTitle">Astar</p>
-                    <p className="claimStepText">Get started by entering your claim information in the fields below.</p>
+                    <p className="statsBoxText">Nodes: 1203</p>
+                    <p className="statsBoxText">Processing time: 12ms</p>
+                    <p className="statsBoxText">Distance: 1203m</p>
+                    <p className="statsBoxText">Shortest-path-nodes: 63</p>
                 </div>
             </Col>
         );

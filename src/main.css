@@ -1,3 +1,10 @@
 body {
   font-family: 'Montserrat', sans-serif
 }
+
+
+@media (min-width: 1200px) {
+  .statsBoxes{
+    max-width: 75%;
+  }
+}
