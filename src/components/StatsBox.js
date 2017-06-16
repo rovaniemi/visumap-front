@@ -11,7 +11,7 @@ class StatsBox extends Component {
     render() {
         return (
             <Col md="auto">
-                <div className="statsBox">
+                <div className="statsBox col-centered">
                     <p className="statsBoxTitle">Astar</p>
                     <p className="statsBoxText">Nodes: 1203</p>
                     <p className="statsBoxText">Processing time: 12ms</p>

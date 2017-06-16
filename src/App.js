@@ -1,23 +1,30 @@
 import React, { Component } from 'react';
-import { Row, Button } from 'react-bootstrap';
+import { Row, Col, Container} from 'reactstrap';
+import Map from './components/Map.js'
 import StatsBox from './components/StatsBox.js'
+import Menu from './components/Menu.js'
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <div>
-          <p></p>
-        </div>
-        <div className="statsBoxes">
-          < Row>
+      <Row>
+        <Col md="3" className="menuCol">
+          <Menu></Menu>
+        </Col>
+        <Col md="9" className="msCol">
+          <Row className="mapRow">
+            <Col md="12" className="msCol">
+              <Map></Map>
+            </Col>
+          </Row>
+          <Row className="statsBoxRow">
             <StatsBox></StatsBox>
             <StatsBox></StatsBox>
             <StatsBox></StatsBox>
             <StatsBox></StatsBox>
           </Row>
-        </div>
-      </div>
+        </Col>
+      </Row>
     );
   }
 }

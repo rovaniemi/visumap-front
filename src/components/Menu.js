@@ -1,6 +1,7 @@
+import styles from './Menu.css'
 import React, { Component } from 'react';
 import { Col } from 'reactstrap';
-import styles from './Menu.css'
+
 
 class Menu extends Component {
 
@@ -10,8 +11,9 @@ class Menu extends Component {
 
     render() {
         return (
-            <Col md="auto">
-            </Col>
+            <div className="menu">
+                <h1>Visumap</h1>
+            </div>
         );
     }
 }
