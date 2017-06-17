@@ -16,7 +16,7 @@ class Map extends Component {
   render() {
     return (
       <GoogleMapReact
-        defaultCenter={this.props.center}
+        center={this.props.center}
         defaultZoom={this.props.zoom}
         options={{styles: this.mapStyles, disableDefaultUI: false}}
       >
