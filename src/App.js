@@ -5,11 +5,21 @@ import StatsBox from './components/StatsBox.js'
 import Menu from './components/Menu.js'
 
 class App extends Component {
+  
+  constructor(){
+    super();
+    this.state = {nameFilter: "h"}
+  }
+
+  handleMenuUpdate(filterValue) {
+    console.log(filterValue);
+  }
+
   render() {
     return (
       <Row>
         <Col md="3" className="menuCol">
-          <Menu></Menu>
+          <Menu updateMenu={this.handleMenuUpdate}></Menu>
         </Col>
         <Col md="9" className="msCol">
           <Row className="mapRow">

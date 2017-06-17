@@ -9,8 +9,8 @@ class Menu extends Component {
 
     constructor (props) {
         super(props);
-        this.state = { cSelected: [] };
-        this.algoClick= this.onAlgoClick.bind(this);
+        this.state = { algoSelected: 1, citySelected: 1 };
+        this.algoClick = this.onAlgoClick.bind(this);
         this.cityClick = this.onCityClick.bind(this);
     }
 
@@ -23,8 +23,32 @@ class Menu extends Component {
     }
 
     random(){
-        console.log(Math.random());
+
     }
+
+    handleMenuChange() {
+        var post = {algorithm:"", sLat:0, sLon:0, gLat:0, gLon:0, city:""}
+        
+        if(this.state.algoSelected == 1){
+            post.algorithm = "astar";
+        } else if (this.state.algoSelected == 2){
+            post.algorithm = "dijkstra";
+        } else {
+            post.algorithm = "bfs";
+        }
+
+        if(this.state.citySelected == 4){
+            post.sLat = Math.random() * (65.8612 - 65.8087) + 65.8087;
+            post.sLon = Math.random() * (24.2152- 24.0916) + 24.0916;
+            post.gLat = Math.random() * (65.8612 - 65.8087) + 65.8087;
+            post.gLon = Math.random() * (24.2152- 24.0916) + 24.0916;
+            post.city = "tornio";
+        }
+
+        this.props.updateMenu(post);
+    }
+
+
 
     render() {
         return (
@@ -60,7 +84,7 @@ class Menu extends Component {
                 </div>
                 <div className="space"></div>
                 <div className="submit">
-                    <Button color="primary" size="m" block onClick={() => this.random()}>Vizualise</Button>
+                    <Button color="primary" size="m" block onClick={() => this.handleMenuChange()}>Vizualise</Button>
                     <Button color="primary" size="m" block>Get new points</Button>
                 </div>
 

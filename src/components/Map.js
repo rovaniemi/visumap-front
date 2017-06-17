@@ -10,8 +10,7 @@ class Map extends Component {
 
   constructor(){
     super();
-      console.log(styles);
-      this.mapStyles = mapStyles;
+    this.mapStyles = mapStyles;
   }
 
   render() {
@@ -30,8 +29,6 @@ class Map extends Component {
     );
   }
 }
-
-
 
 Map.propTypes = {
   // You can declare that a prop is a specific JS primitive. By default, these
