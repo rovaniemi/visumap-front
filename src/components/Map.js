@@ -1,10 +1,20 @@
 import React, { Component } from 'react';
-import GoogleMapReact from 'google-map-react';
+
+import { withGoogleMap, GoogleMap, Marker, GoogleMapLoader, Polyline} from "react-google-maps";
 import mapStyles from './googleMap.json';
 import styles from'./Map.css';
 import PropTypes from 'prop-types';
 
-const AnyReactComponent = ({ text }) => <div>{text}</div>;
+const GettingStartedGoogleMap = withGoogleMap(props => (
+  <GoogleMap
+    ref={props.onMapLoad}
+    defaultZoom={13}
+    center={props.center}
+    options={{styles: mapStyles, disableDefaultUI: false, streetViewControl: false}}
+  >
+  <Polyline options={{strokeColor: '#2e10ff', geodesic: true }} path={props.path} />
+  </GoogleMap>
+));
 
 class Map extends Component {
 
@@ -15,20 +25,20 @@ class Map extends Component {
 
   render() {
     return (
-      <GoogleMapReact
-        center={this.props.center}
-        defaultZoom={this.props.zoom}
-        options={{styles: this.mapStyles, disableDefaultUI: false}}
-      >
-        <AnyReactComponent
-          lat={59.005413}
-          lng={30.337844}
-          text={''}
-        />
-      </GoogleMapReact>
+        <GettingStartedGoogleMap
+          containerElement={
+          <div style={{ height: `100%` }} />
+          }
+          center = {this.props.center}
+          path = {this.props.path}
+          mapElement={
+            <div style={{ height: `100%` }} />
+          }
+      />
     );
   }
 }
+
 
 Map.propTypes = {
   // You can declare that a prop is a specific JS primitive. By default, these

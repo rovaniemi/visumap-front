@@ -16,10 +16,35 @@ class App extends Component {
   handleMenuUpdate(menuValue) {
     console.log(this.state.center)
     var center = {lat: menuValue.sLat, lng: menuValue.sLon}
+    var lastPoint = {lat: menuValue.gLat, lng: menuValue.gLon}
+    var array = []
+    array.push(center)
+    array.push(lastPoint)
     this.setState({
       post: menuValue,
-      center: center
+      center: center,
+      path: array
     });
+    this.apiCall(menuValue);
+  }
+
+  apiCall(post) {
+    fetch('/shortest/0.1V/', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        algorithm: post.algorithm + '',
+        sLat: post.sLat + '',
+        sLon: post.sLon + '',
+        gLat: post.gLat + '',
+        gLon: post.gLon + '',
+        city: post.city + ''
+      })}).then(function(response){
+        console.log(response);
+      });
   }
 
   render() {
@@ -31,7 +56,7 @@ class App extends Component {
         <Col md="9" className="msCol">
           <Row className="mapRow">
             <Col md="12" className="msCol">
-              <Map center={this.state.center}></Map>
+              <Map center={this.state.center} path={this.state.path}></Map>
             </Col>
           </Row>
           <Row className="statsBoxRow">
