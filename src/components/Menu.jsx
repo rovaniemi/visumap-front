@@ -45,6 +45,14 @@ class Menu extends Component {
             post.city = "tornio";
         }
 
+        if(this.state.citySelected == 1){
+            post.sLat = Math.random() * (60.2957 - 60.1415) + 60.1415;
+            post.sLon = Math.random() * (24.6753- 25.1697) + 25.1697;
+            post.gLat = Math.random() * (60.2957 - 60.1415) + 60.1415;
+            post.gLon = Math.random() * (24.6753- 25.1697) + 25.1697;
+            post.city = "helsinki";
+        }
+
         this.props.updateMenu(post);
     }
 
