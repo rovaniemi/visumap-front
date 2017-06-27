@@ -8,18 +8,15 @@ class App extends Component {
 
     constructor() {
         super();
-        this.state = { path: [{ lat: 60.162059, lng: 24.945831 }],center: { lat: 60.162059, lng: 24.945831 }, post: {algorithm: "astar", points:[0,0]}};
+        this.state = { path: [{ lat: 60.162059, lng: 24.945831 }],center: { lat: 60.162059, lng: 24.945831 }, post: {algorithm: "astar", points: [0,0]}};
         this.handleMenuUpdate = this.handleMenuUpdate.bind(this);
-        this.apiCall = this.apiCall.bind(this);
     }
 
     handleMenuUpdate(menuValue) {
         this.apiCall(menuValue);
-
         this.setState({
             post: menuValue
         });
-
         var center = this.state.path[0]
         this.setState({
             center: center
@@ -37,9 +34,11 @@ class App extends Component {
                 algorithm: post.algorithm,
                 points: post.points
             })
-        }).then(response => response.json()).then(json => this.setState({ path: json.shortestPath }));
+        }).then(response => response.json()).then(json => this.setState({ 
+            path: json.shortestPath,
+            circlepath: json.everyNode
+        }));
     }
-
 
     render() {
         return ( 
@@ -52,7 +51,8 @@ class App extends Component {
                 <Row className = "mapRow">
                     <Col md = "12" className = "msCol">
                         <Map center = {this.state.center}
-                        path = {this.state.path}> 
+                             path = {this.state.path}
+                             circlepath = {this.state.circlepath}> 
                         </Map> 
                     </Col>   
                 </Row> 
